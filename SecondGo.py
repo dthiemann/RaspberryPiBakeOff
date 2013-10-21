@@ -61,13 +61,16 @@ while True:
     buttonXwin = [x for x in range(400,551)]
     buttonYwin = [y for y in range(1,31)]
 
+    answer = "A"
+    userAnswer = ""
+
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
         if (event.type == MOUSEBUTTONDOWN):
             print "Mouse clicked!"
-            if (pygame.mouse.get_pressed) and ((pygame.mouse.get_pos()[0] in buttonXwin) and (pygame.mouse.get_pos()[1] in buttonYwin)):
+            if (pygame.mouse.get_pos()[0] in buttonXwin) and (pygame.mouse.get_pos()[1] in buttonYwin):
                 if (not ListOfQuestions):
                     print "The dictionary is empty"
                 else: 
@@ -82,9 +85,17 @@ while True:
 
                     #Options Buttons
                     Abutton = Button(30,30,50,300, (255,255,255),"A",(0,255,0))
+                    Axwin = [x for x in range(50,81)]
+                    Aywin = [y for y in range(300,331)]
                     Bbutton = Button(30,30,50,350, (255,255,255),"B",(0,255,0))
+                    Bxwin = [x for x in range(50,81)]
+                    Bywin = [y for y in range(350,381)]
                     Cbutton = Button(30,30,100,300, (255,255,255), "C", (0,255,0))
+                    Cxwin = [x for x in range(100,131)]
+                    Cywin = [y for y in range(300,331)]
                     Dbutton = Button(30,30,100, 350, (255,255,255), "D", (0,255,0))
+                    Dxwin = [x for x in range(100,131)]
+                    Dywin = [y for y in range(350,381)]
 
                     screen.blit(question1, (50,100))
                     screen.blit(answer1, (50,150))
@@ -95,6 +106,19 @@ while True:
                     screen.blit(Bbutton.surface,(Bbutton.xpos,Bbutton.ypos))
                     screen.blit(Cbutton.surface,(Cbutton.xpos,Cbutton.ypos))
                     screen.blit(Dbutton.surface,(Dbutton.xpos,Dbutton.ypos))
+            if (pygame.mouse.get_pos()[0] in Axwin) and (pygame.mouse.get_pos()[1] in Aywin):
+                userAnswer = "A"
+                print "You picked A"
+            if (pygame.mouse.get_pos()[0] in Bxwin) and (pygame.mouse.get_pos()[1] in Bywin):
+                userAnswer = "B"
+                print "You picked B"
+            if (pygame.mouse.get_pos()[0] in Cxwin) and (pygame.mouse.get_pos()[1] in Cywin):
+                userAnswer = "C"
+                print "You picked C"
+            if (pygame.mouse.get_pos()[0] in Dxwin) and (pygame.mouse.get_pos()[1] in Dywin):
+                userAnswer = "D"
+                print "You picked D"
+            
     pygame.display.update()
 
 
