@@ -1,8 +1,5 @@
-
-
 import pygame, sys
 from pygame.locals import *
-
 import pygame
 
 class Button():
@@ -43,14 +40,12 @@ background.fill((0,250,0))
 buttonA = Button(150,150,300,300,(0,255,0),"Scoodly do bop", (0,0,0))
 background.blit(buttonA.surface,(buttonA.xpos,buttonA.ypos))
 
-
-
 screen.blit(background, (0,0))
 pygame.display.flip()
 
-
-
-ListOfQuestions = {'Question A: Yellow is what color?' : ["cheese", "blue","yellow","yesterday"]}
+#Dictionary of all my questions
+ListOfQuestions = {'Question A: Yellow is what color?' : ["cheese", "blue","yellow","yesterday"]
+                   }
 
 msgSurface = questionFont.render("Hello",True, (0,0,0))
 answer11 = answerFont.render("Answer1", True, (0,0,0),(0,0,100))
@@ -66,22 +61,6 @@ while True:
     buttonXwin = [x for x in range(400,551)]
     buttonYwin = [y for y in range(1,31)]
 
-    '''
-    if (pygame.mouse.get_pressed) and ((pygame.mouse.get_pos()[0] in buttonXwin) and (pygame.mouse.get_pos()[1] in buttonYwin))
-
-    x = ListOfQuestions.popitem()
-    question1 = questionFont.render(x[0], True, (0,0,0))
-    answer1 = answerFont.render(x[1][0],True, (0,0,0))
-    answer2 = answerFont.render(x[1][1],True, (0,0,0))
-    answer3 = answerFont.render(x[1][2],True, (0,0,0))
-    answer4 = answerFont.render(x[1][3],True, (0,0,0))
-
-    screen.blit(question1, (50,100))
-    screen.blit(answer1, (50, 150))
-    screen.blit(answer2, (50, 200))
-    screen.blit(answer3, (300, 150))
-    screen.blit(answer4, (300,200))
-    '''
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
@@ -93,17 +72,29 @@ while True:
                     print "The dictionary is empty"
                 else: 
                     x = ListOfQuestions.popitem()
+
+                    #Question and answer statements
                     question1 = questionFont.render(x[0], True, (0,0,0))
-                    answer1 = answerFont.render(x[1][0], True, (0,0,0))
-                    answer2 = answerFont.render(x[1][1], True, (0,0,0))
-                    answer3 = answerFont.render(x[1][2], True, (0,0,0))
-                    answer4 = answerFont.render(x[1][3], True, (0,0,0))
+                    answer1 = answerFont.render("A: " + x[1][0], True, (0,0,0))
+                    answer2 = answerFont.render("B: " + x[1][1], True, (0,0,0))
+                    answer3 = answerFont.render("C: " + x[1][2], True, (0,0,0))
+                    answer4 = answerFont.render("D: " + x[1][3], True, (0,0,0))
+
+                    #Options Buttons
+                    Abutton = Button(30,30,50,300, (255,255,255),"A",(0,255,0))
+                    Bbutton = Button(30,30,50,350, (255,255,255),"B",(0,255,0))
+                    Cbutton = Button(30,30,100,300, (255,255,255), "C", (0,255,0))
+                    Dbutton = Button(30,30,100, 350, (255,255,255), "D", (0,255,0))
 
                     screen.blit(question1, (50,100))
                     screen.blit(answer1, (50,150))
                     screen.blit(answer2, (50,200))
                     screen.blit(answer3, (300,150))
                     screen.blit(answer4, (300,200))
+                    screen.blit(Abutton.surface,(Abutton.xpos,Abutton.ypos))
+                    screen.blit(Bbutton.surface,(Bbutton.xpos,Bbutton.ypos))
+                    screen.blit(Cbutton.surface,(Cbutton.xpos,Cbutton.ypos))
+                    screen.blit(Dbutton.surface,(Dbutton.xpos,Dbutton.ypos))
     pygame.display.update()
 
 
