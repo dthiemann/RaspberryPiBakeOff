@@ -30,9 +30,6 @@ class Button():
         surface.convert()
         self.surface = surface
 
-
-
-
 pygame.init()
 pygame.display.init()
 screen = pygame.display.set_mode((640,480))
@@ -46,6 +43,8 @@ background.fill((0,250,0))
 buttonA = Button(150,150,300,300,(0,255,0),"Scoodly do bop", (0,0,0))
 background.blit(buttonA.surface,(buttonA.xpos,buttonA.ypos))
 
+
+
 screen.blit(background, (0,0))
 pygame.display.flip()
 
@@ -58,9 +57,19 @@ answer11 = answerFont.render("Answer1", True, (0,0,0),(0,0,100))
 screen.blit(msgSurface,(10,10))
 screen.blit(answer11, (50,50))
 
+GenerateQuestion = Button(150,30,400,1,(0,255,0),"Generate Question", (255,255,255))
+screen.blit(GenerateQuestion.surface,(GenerateQuestion.xpos,GenerateQuestion.ypos))
 
-x = ListOfQuestions.popitem()
+
 while True:
+
+    buttonXwin = [x for x in range(400,551)]
+    buttonYwin = [y for y in range(1,31)]
+
+    '''
+    if (pygame.mouse.get_pressed) and ((pygame.mouse.get_pos()[0] in buttonXwin) and (pygame.mouse.get_pos()[1] in buttonYwin))
+
+    x = ListOfQuestions.popitem()
     question1 = questionFont.render(x[0], True, (0,0,0))
     answer1 = answerFont.render(x[1][0],True, (0,0,0))
     answer2 = answerFont.render(x[1][1],True, (0,0,0))
@@ -72,15 +81,30 @@ while True:
     screen.blit(answer2, (50, 200))
     screen.blit(answer3, (300, 150))
     screen.blit(answer4, (300,200))
-
+    '''
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+        if (event.type == MOUSEBUTTONDOWN):
+            print "Mouse clicked!"
+            if (pygame.mouse.get_pressed) and ((pygame.mouse.get_pos()[0] in buttonXwin) and (pygame.mouse.get_pos()[1] in buttonYwin)):
+                if (not ListOfQuestions):
+                    print "The dictionary is empty"
+                else: 
+                    x = ListOfQuestions.popitem()
+                    question1 = questionFont.render(x[0], True, (0,0,0))
+                    answer1 = answerFont.render(x[1][0], True, (0,0,0))
+                    answer2 = answerFont.render(x[1][1], True, (0,0,0))
+                    answer3 = answerFont.render(x[1][2], True, (0,0,0))
+                    answer4 = answerFont.render(x[1][3], True, (0,0,0))
 
+                    screen.blit(question1, (50,100))
+                    screen.blit(answer1, (50,150))
+                    screen.blit(answer2, (50,200))
+                    screen.blit(answer3, (300,150))
+                    screen.blit(answer4, (300,200))
     pygame.display.update()
 
-# response = raw_input("If you want to proceed, enter 1 and hit enter")
-# if response == "1":
-#     continue
+
 
