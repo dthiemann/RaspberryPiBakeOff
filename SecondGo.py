@@ -9,8 +9,6 @@ class Button():
         self.height = height
         self.xpos = x
         self.ypos = y
-        # Make a new surface object for the text to live on
-        surface = pygame.Surface((width,height))
         self.color = color
         # Load the font with the font size
         fonts = pygame.font.Font(None, 24)
@@ -18,6 +16,8 @@ class Button():
         displayText = fonts.render(text, 1, color)
         # Get the size of the rectangle the text is in
         textpos = displayText.get_rect()
+        # Make a new surface object for the text to live on
+        surface = pygame.Surface((textpos.width+30,textpos.height + 30))
         # Center the text within it's container
         textpos.centerx = surface.get_rect().centerx
         textpos.centery = surface.get_rect().centery
