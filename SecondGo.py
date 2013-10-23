@@ -125,7 +125,9 @@ class Button():
         # Blit it onto the surface object
         surface.blit(displayText,textpos)
         #Convert to improve render time
+        surface.set_alpha(200)
         surface.convert()
+
         self.surface = surface
 
     #Provides a way to update the button
@@ -165,7 +167,6 @@ background = background.convert()
 background.fill((0,179,219))
 
 buttonA = Button(150,100,200,300,(1,1,1),"Scoodly do bop da diddly toodly tum ta scoot there young sir ta toodly", (255,255,255))
-buttonA.surface.set_alpha(200)
 background.blit(buttonA.surface,(buttonA.xpos,buttonA.ypos))
 
 screen.blit(background, (0,0))
@@ -224,7 +225,7 @@ while True:
 
                     #Options Buttons
                     Abutton = Button(30,30,50,300, (255,255,255),"A",(0,255,0))
-                    Abuttonxwin = [x for x in range(50,81)]
+                    Axwin = [x for x in range(50,81)]
                     Aywin = [y for y in range(300,331)]
                     Bbutton = Button(30,30,50,350, (255,255,255),"B",(0,255,0))
                     Bxwin = [x for x in range(50,81)]
@@ -245,7 +246,7 @@ while True:
                     screen.blit(Bbutton.surface,(Bbutton.xpos,Bbutton.ypos))
                     screen.blit(Cbutton.surface,(Cbutton.xpos,Cbutton.ypos))
                     screen.blit(Dbutton.surface,(Dbutton.xpos,Dbutton.ypos))
-            if (pygame.mouse.get_pos()[0] in Abuttonxwin) and (pygame.mouse.get_pos()[1] in Aywin):
+            if (pygame.mouse.get_pos()[0] in Axwin) and (pygame.mouse.get_pos()[1] in Aywin):
                 userAnswer = "A"
                 print "You picked A"
             if (pygame.mouse.get_pos()[0] in Bxwin) and (pygame.mouse.get_pos()[1] in Bywin):
