@@ -1,4 +1,4 @@
-import pygame, sys, textwrap
+﻿import pygame, sys, textwrap
 from pygame.locals import *
 import pygame
 
@@ -179,10 +179,10 @@ ScienceQuestions = { 'What kind of rocks form inside of volcanoes?': ['metamorph
 
 }
 
-SocialStudiesQuestions = { 'What document did the colonies sign to get freedom from the British soldiers in the American revolution?' : ['A piece of notebook paper', 'The grand statement', 'The Declaration of Independence', 'The Bill of Rights', 'The Decleration of independence declared independence (freedom) from the King of England!',  'Good job!'], 'Who was the first president of the United States?': ['Abraham Lincoln', 'George Washington', 'Barak Obama', 'Ronald Reagan', 'Sorry, the correct answer is George Washington', 'Nice!'], 'On which continent is the United States of America located?': : ['North America', 'South America', 'France', 'Africa', 'The correct answer is North America', 'Correct!'], 'Who is the current President of the United States?': ['Barak Obama', 'George Bush', 'Bill Clinton', 'Richard Nixon', 'Barak Obama was elected in 2008 and is now serving his second term as president.', 'Nice!'], 'What is the capital of the United States?': ['Nebraska', 'New York City', 'Chicago', 'Washington D.C.', 'Washington D.C. is the capitol of America, and it is where the presidents and their families reside', 'Well done!'], 'What is an example of a state in the midwest?': ['Virginia', 'California', 'New York', 'Iowa', 'The correct answer is Iowa!', 'Correct!'], 'What countries are right next to America?': ['Mexico and Canada', 'Egypt and Russia', 'Switzerland and China', 'Brazil and Australia', 'Mexico is on the southern border and Canada is on the northern border', 'Right!'], 'What is the capital of ILlinois?': ['Chicago', 'Bloomington', 'Texas', 'Springfield', 'The correct answer is Springfield', 'Correct!']
+SocialStudiesQuestions = { 'What document did the colonies sign to get freedom from the British soldiers in the American revolution?' : ['A piece of notebook paper', 'The grand statement', 'The Declaration of Independence', 'The Bill of Rights', 'The Decleration of independence declared independence (freedom) from the King of England!',  'Good job!'], 'Who was the first president of the United States?': ['Abraham Lincoln', 'George Washington', 'Barak Obama', 'Ronald Reagan', 'Sorry, the correct answer is George Washington', 'Nice!'], 'On which continent is the United States of America located?': ['North America', 'South America', 'France', 'Africa', 'The correct answer is North America', 'Correct!'], 'Who is the current President of the United States?': ['Barak Obama', 'George Bush', 'Bill Clinton', 'Richard Nixon', 'Barak Obama was elected in 2008 and is now serving his second term as president.', 'Nice!'], 'What is the capital of the United States?': ['Nebraska', 'New York City', 'Chicago', 'Washington D.C.', 'Washington D.C. is the capitol of America, and it is where the presidents and their families reside', 'Well done!'], 'What is an example of a state in the midwest?': ['Virginia', 'California', 'New York', 'Iowa', 'The correct answer is Iowa!', 'Correct!'], 'What countries are right next to America?': ['Mexico and Canada', 'Egypt and Russia', 'Switzerland and China', 'Brazil and Australia', 'Mexico is on the southern border and Canada is on the northern border', 'Right!'], 'What is the capital of ILlinois?': ['Chicago', 'Bloomington', 'Texas', 'Springfield', 'The correct answer is Springfield', 'Correct!']
 }
 
-mathQuestions = { 'How many centimeters are in one meter?': ['10', '1', '100', '1000', 'The prefix cent- means 100, so there are 100 centimeters in a meter', 'Bingo!'], 'What is 4 squared?': ['16', '2', '1', '8', : 'Taking the square of a number is the equivalent to multiplying the number by itself. 4squared = 4x4 = 16', 'Well done!'], 'Josie cuts 8 apples in half. She gives herself and each person in her class one half of an apple. Afterwards, she is left with one half an apple. How many people are in her classroom (including Josie)?': ['16', '8', '4', '15', 'Each apple gives you two halves, 8x2 - 16. If everyone eats one half and there is one half remaining, that means there are 15 people in the classroom.', 'Nice!'], 'Not counting thumbs, how many fingers and toes do 2 people normally have altogether?': ['18', '36', '2', '11', '8 fingers + 10 toes = 18. 18x2 = 36.', 'Correct-o!'], 'How many degrees are the angles in an equilateral (meaning all sides and angles are equal) triangle? Hint: a triangle has angles that must add up to 180 degrees.': ['90', '3', '60', '100', '180/3 = 60', 'You are right!'], 'Larry has a bag containing a red marble, a blue marble, and a pink marble. If he closes his eyes and picks out a marble randomly, what are the chances Larry will pick a red marble?' : ['1 in 3 chance', '1 in 1 chance', '3 in 3 chance', 'No chance', 'If there are 3 marbles and only 1 is red, that means Larry has a 1 in 3 chance!', 'Nice job!'], 'Solve: 6x5x2': ['30', '15', '60', '32', '6x5 = 30. 30x2 = 60. Better luck next time!', 'Neat!'], 'Put either "+", "x", "-", "÷" between 5, 10, 2, and 1 to try and get 51.': ['5x10÷2+1', '5÷10+2x1', '1+5+2+10', 'None of the above', '5x10÷2+1 = 51!', 'You rock!'], 'What is a prime number?': ['A really long number', 'A number only divisible by one and itself', 'The square root of 16', 'Zero', 'A number only divisible by one and itself', 'AWESOME!']
+mathQuestions = { 'How many centimeters are in one meter?': ['10', '1', '100', '1000', 'The prefix cent- means 100, so there are 100 centimeters in a meter', 'Bingo!'], 'What is 4 squared?': ['16', '2', '1', '8', 'Taking the square of a number is the equivalent to multiplying the number by itself. 4squared = 4x4 = 16', 'Well done!'], 'Josie cuts 8 apples in half. She gives herself and each person in her class one half of an apple. Afterwards, she is left with one half an apple. How many people are in her classroom (including Josie)?': ['16', '8', '4', '15', 'Each apple gives you two halves, 8x2 - 16. If everyone eats one half and there is one half remaining, that means there are 15 people in the classroom.', 'Nice!'], 'Not counting thumbs, how many fingers and toes do 2 people normally have altogether?': ['18', '36', '2', '11', '8 fingers + 10 toes = 18. 18x2 = 36.', 'Correct-o!'], 'How many degrees are the angles in an equilateral (meaning all sides and angles are equal) triangle? Hint: a triangle has angles that must add up to 180 degrees.': ['90', '3', '60', '100', '180/3 = 60', 'You are right!'], 'Larry has a bag containing a red marble, a blue marble, and a pink marble. If he closes his eyes and picks out a marble randomly, what are the chances Larry will pick a red marble?' : ['1 in 3 chance', '1 in 1 chance', '3 in 3 chance', 'No chance', 'If there are 3 marbles and only 1 is red, that means Larry has a 1 in 3 chance!', 'Nice job!'], 'Solve: 6x5x2': ['30', '15', '60', '32', '6x5 = 30. 30x2 = 60. Better luck next time!', 'Neat!'], 'Put either "+", "x", "-", "÷" between 5, 10, 2, and 1 to try and get 51.': ['5x10÷2+1', '5÷10+2x1', '1+5+2+10', 'None of the above', '5x10÷2+1 = 51!', 'You rock!'], 'What is a prime number?': ['A really long number', 'A number only divisible by one and itself', 'The square root of 16', 'Zero', 'A number only divisible by one and itself', 'AWESOME!']
 }
 
 msgSurface = questionFont.render("Hello",True, (0,0,0))
@@ -223,7 +223,7 @@ while True:
 
                     #Options Buttons
                     Abutton = Button(30,30,50,300, (255,255,255),"A",(0,255,0))
-                    Axwin = [x for x in range(50,81)]
+                    Abutonxwin = [x for x in range(50,81)]
                     Aywin = [y for y in range(300,331)]
                     Bbutton = Button(30,30,50,350, (255,255,255),"B",(0,255,0))
                     Bxwin = [x for x in range(50,81)]
@@ -244,7 +244,7 @@ while True:
                     screen.blit(Bbutton.surface,(Bbutton.xpos,Bbutton.ypos))
                     screen.blit(Cbutton.surface,(Cbutton.xpos,Cbutton.ypos))
                     screen.blit(Dbutton.surface,(Dbutton.xpos,Dbutton.ypos))
-            if (pygame.mouse.get_pos()[0] in Axwin) and (pygame.mouse.get_pos()[1] in Aywin):
+            if (pygame.mouse.get_pos()[0] in Abuttonxwin) and (pygame.mouse.get_pos()[1] in Aywin):
                 userAnswer = "A"
                 print "You picked A"
             if (pygame.mouse.get_pos()[0] in Bxwin) and (pygame.mouse.get_pos()[1] in Bywin):
@@ -258,6 +258,7 @@ while True:
                 print "You picked D"
             
     pygame.display.update()
+    
 
 
 
