@@ -123,9 +123,10 @@ class Button():
         textpos.centerx = surface.get_rect().centerx
         textpos.centery = surface.get_rect().centery
         # Blit it onto the surface object
+        surface.fill(color)
+        surface.set_alpha(200)
         surface.blit(displayText,textpos)
         #Convert to improve render time
-        surface.set_alpha(200)
         surface.convert()
 
         self.surface = surface
@@ -164,10 +165,10 @@ answerFont = pygame.font.Font("freesansbold.ttf",24)
 
 background = pygame.Surface(screen.get_size())
 background = background.convert()
-background.fill((0,179,219))
+background.fill((2,149,179))
 
-buttonA = Button(150,100,200,300,(1,1,1),"Scoodly do bop da diddly toodly tum ta scoot there young sir ta toodly", (255,255,255))
-background.blit(buttonA.surface,(buttonA.xpos,buttonA.ypos))
+# buttonA = Button(150,100,200,300,(2,79,132),"Scoodly do bop da diddly toodly tum ta scoot there young sir ta toodly", (255,255,255))
+# background.blit(buttonA.surface,(buttonA.xpos,buttonA.ypos))
 
 screen.blit(background, (0,0))
 pygame.display.flip()
@@ -194,7 +195,7 @@ ListofQuestions= {'Choose the sentence which uses correct grammar:' : ["Your fun
 # screen.blit(msgSurface,(10,10))
 # screen.blit(answer11, (50,50))
 
-GenerateQuestion = Button(150,40,400,1,(0,0,0),"Generate Question", (0,0,0))
+GenerateQuestion = Button(150,40,400,1,(2,79,132),"Generate Question", (255,255,255))
 screen.blit(GenerateQuestion.surface,(GenerateQuestion.xpos,GenerateQuestion.ypos))
 
 
