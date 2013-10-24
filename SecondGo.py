@@ -98,10 +98,12 @@ class QuestionPane():
         fonts = pygame.font.Font(None, 24)
         #makes a rectangle slightly larger than the declared width. I've
         #found this makes it look more centered
-        rectangle = pygame.Rect((0,0), (width + 30,height))
+        rectangle = pygame.Rect((width/2,height/2), (width + 30,height))
         #Createds a Surface object that contains the text with line breaks
         text = render_textrect(text,fonts, rectangle,textColor,color, 1)
-        self.surface = text
+        surface = pygame.Surface((text.get_width(),text.get_height()))
+        surface.blit(text,(0,0))
+        self.surface = surface
 
 class Button():
 
@@ -159,13 +161,19 @@ class Button():
 
 pygame.init()
 pygame.display.init()
-screen = pygame.display.set_mode((640,480))
+screen = pygame.display.set_mode((800,468))
 questionFont = pygame.font.Font("freesansbold.ttf",32)
 answerFont = pygame.font.Font("freesansbold.ttf",24)
 
+choiceBackground = (2,79,132)
+answerBackground = (6,166,32)
+answerTextColor = (236,236,236)
+backgroundColor = (2,149,179)
+
+
 background = pygame.Surface(screen.get_size())
 background = background.convert()
-background.fill((2,149,179))
+background.fill(backgroundColor)
 
 # buttonA = Button(150,100,200,300,(2,79,132),"Scoodly do bop da diddly toodly tum ta scoot there young sir ta toodly", (255,255,255))
 # background.blit(buttonA.surface,(buttonA.xpos,buttonA.ypos))
@@ -175,7 +183,7 @@ pygame.display.flip()
 
 #Dictionary of all my questions
 #LanguageArtsQuestions
-ListofQuestions= {'Choose the sentence which uses correct grammar:' : ["Your funny, to!", "Its you’re birthday party!","It’s your turn.","It’s you’re job, too!", "The correct answer is: 'It's your turn.'", 'Well done!' ],
+ListOfQuestions= {'Choose the sentence which uses correct grammar:' : ["Your funny, to!", "Its you’re birthday party!","It’s your turn.","It’s you’re job, too!", "The correct answer is: 'It's your turn.'", 'Well done!' ],
 'Which words in the following sentence are not spelled correctly? “Bob and Sarah went too the park and played frisbey.”': ['and', 'frisbey', 'too', 'b and c', 'Sorry, the correct answer is frisbey and too (b and c)', 'Right!'], 'Which of the following words should be capitalized?': ['monday', 'spring', 'water', 'pencil', 'The answer is Monday,', 'Right!'], 'What punctuation mark comes at the end of a sentence to show excitement?': ['?', '!', '.', '&', 'This does: !', 'AWESOME!!!'], 'What is a conjunction?': ['A train station.', 'Two sentences connected to form one sentence.', 'A punctuation mark used to show excitement.', 'A really yummy kind of pizza', 'The answer is: two sentences connected to form one sentence.', 'Correct!'], 'What are some words used in a conjunction?': ['and', 'but', 'or', 'all of the above', 'And, but, and or are all words used in a conjunction.', 'Awesome!'], 'Which of the following words is a synonym for “big”?': ['gigantic', 'great', 'little', 'small', 'Gigantic is the correct answer, sorry.', 'Good job!'], 'What does the prefix anti- mean?': ['with', 'against', 'large', 'cold', 'Anti- means against, like antidote is a cure because it works against the illness!', 'Excellent!'], 'Which of the following is an example of an idiom?': ['It’s raining cats and dogs!', 'Have a holly jolly Christmas.', 'Keep an eye out for that one.', 'All of the above are examples of idioms.', 'An idiom is when you say something that is not meant to be taken literally, so all of the answers are correct, but D was the best answer.', 'Nice!'], 'Which of the following is an example of a possessive word': ["You're", "It's", "Their", "There", 'Sorry, your answer is incorrect. Their is an example of a possessive word.', 'NICE!'],
 
 
@@ -220,11 +228,16 @@ while True:
                     x = ListOfQuestions.popitem()
 
                     #Question and answer statements
-                    question1 = questionFont.render(x[0], True, (0,0,0))
-                    answer1 = answerFont.render("A: " + x[1][0], True, (0,0,0))
-                    answer2 = answerFont.render("B: " + x[1][1], True, (0,0,0))
-                    answer3 = answerFont.render("C: " + x[1][2], True, (0,0,0))
-                    answer4 = answerFont.render("D: " + x[1][3], True, (0,0,0))
+                    question1 = QuestionPane(500,250,50,100,backgroundColor,x[0],(0,0,0))
+                    answer1 = "A: " + x[1][0]
+                    answer2 = "B: " + x[1][1]
+                    answer3 = "C: " + x[1][2]
+                    answer4 = "D: " + x[1][3]
+
+                    answerA = QuestionPane(200,55,50,150,answerBackground,answer1,answerTextColor)
+                    answerB = QuestionPane(200,55,50,220,answerBackground,answer2,answerTextColor)
+                    answerC = QuestionPane(200,55,300,150,answerBackground,answer3,answerTextColor)
+                    answerD = QuestionPane(200,55,300,220,answerBackground,answer4,answerTextColor)
 
                     #Options Buttons
                     Abutton = Button(30,30,50,300, (255,255,255),"A",(0,255,0))
@@ -240,27 +253,27 @@ while True:
                     Dxwin = [x for x in range(100,131)]
                     Dywin = [y for y in range(350,381)]
 
-                    screen.blit(question1, (50,100))
-                    screen.blit(answer1, (50,150))
-                    screen.blit(answer2, (50,200))
-                    screen.blit(answer3, (300,150))
-                    screen.blit(answer4, (300,200))
+                    screen.blit(question1.surface, (question1.xpos,question1.ypos))
+                    screen.blit(answerA.surface, (answerA.xpos,answerA.ypos))
+                    screen.blit(answerB.surface, (answerB.xpos,answerB.ypos))
+                    screen.blit(answerC.surface, (answerC.xpos,answerC.ypos))
+                    screen.blit(answerD.surface, (answerD.xpos,answerD.ypos))
                     screen.blit(Abutton.surface,(Abutton.xpos,Abutton.ypos))
                     screen.blit(Bbutton.surface,(Bbutton.xpos,Bbutton.ypos))
                     screen.blit(Cbutton.surface,(Cbutton.xpos,Cbutton.ypos))
                     screen.blit(Dbutton.surface,(Dbutton.xpos,Dbutton.ypos))
-            if (pygame.mouse.get_pos()[0] in Axwin) and (pygame.mouse.get_pos()[1] in Aywin):
-                userAnswer = "A"
-                print "You picked A"
-            if (pygame.mouse.get_pos()[0] in Bxwin) and (pygame.mouse.get_pos()[1] in Bywin):
-                userAnswer = "B"
-                print "You picked B"
-            if (pygame.mouse.get_pos()[0] in Cxwin) and (pygame.mouse.get_pos()[1] in Cywin):
-                userAnswer = "C"
-                print "You picked C"
-            if (pygame.mouse.get_pos()[0] in Dxwin) and (pygame.mouse.get_pos()[1] in Dywin):
-                userAnswer = "D"
-                print "You picked D"
+                    if (pygame.mouse.get_pos()[0] in Axwin) and (pygame.mouse.get_pos()[1] in Aywin):
+                        userAnswer = "A"
+                        print "You picked A"
+                    if (pygame.mouse.get_pos()[0] in Bxwin) and (pygame.mouse.get_pos()[1] in Bywin):
+                        userAnswer = "B"
+                        print "You picked B"
+                    if (pygame.mouse.get_pos()[0] in Cxwin) and (pygame.mouse.get_pos()[1] in Cywin):
+                        userAnswer = "C"
+                        print "You picked C"
+                    if (pygame.mouse.get_pos()[0] in Dxwin) and (pygame.mouse.get_pos()[1] in Dywin):
+                        userAnswer = "D"
+                        print "You picked D"
             
     pygame.display.update()
     
